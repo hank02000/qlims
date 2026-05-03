@@ -1,0 +1,13 @@
+{
+  "name": "qlims",
+  "version": "1.0.0",
+  "description": "全利進銷存管理系統",
+  "main": "api/inventory.js",
+  "scripts": {
+    "start": "vercel",
+    "build": "vercel build"
+  },
+  "dependencies": {
+    "googleapis": "^100.0.0"
+  }
+}
