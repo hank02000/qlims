@@ -4,8 +4,7 @@
   "description": "全利進銷存管理系統",
   "main": "api/inventory.js",
   "scripts": {
-    "start": "vercel",
-    "build": "vercel build"
+    "start": "vercel"
   },
   "dependencies": {
     "googleapis": "^100.0.0"
