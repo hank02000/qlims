@@ -23,7 +23,7 @@ module.exports = async (req, res) => {
     
     const response = await sheets.spreadsheets.values.get({
       spreadsheetId: SPREADSHEET_ID,
-      range: `'T_CHAT'!A:G`,
+      range: `T_CHAT!A:G`,
     });
 
     res.status(200).json(response.data);
