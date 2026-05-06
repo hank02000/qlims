@@ -21,12 +21,16 @@ module.exports = async (req, res) => {
 
     const sheets = google.sheets({ version: 'v4', auth: API_KEY });
     
+    // 先取得所有工作表名稱
+    const meta = await sheets.spreadsheets.get({ spreadsheetId: SPREADSHEET_ID });
+    const sheetTitle = meta.data.sheets[0].properties.title;
+    
     const response = await sheets.spreadsheets.values.get({
       spreadsheetId: SPREADSHEET_ID,
-      range: `T_CHAT!A:G`,
+      range: sheetTitle + '!A:G',
     });
 
-    res.status(200).json(response.data);
+    res.status(200).json({ sheetTitle: sheetTitle, data: response.data });
   } catch (error) {
     console.error('Error:', error.message);
     res.status(500).json({ error: error.message });
