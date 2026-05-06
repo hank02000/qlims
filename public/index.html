@@ -42,9 +42,10 @@
     <table>
       <thead>
         <tr>
+          <th>時間</th>
           <th>貨號</th>
           <th>客戶代號</th>
-          <th>時間</th>
+          <th>訂貨內容</th>
         </tr>
       </thead>
       <tbody id="inventory">
@@ -57,7 +58,10 @@
     async function loadData() {
       try {
         const response = await fetch('/api/inventory');
-        const data = await response.json();
+        const json = await response.json();
+        
+        // API 回傳格式：{ sheetTitle, data: { values } }
+        const data = json.data || json;
         
         if (data.error) {
           throw new Error(data.error);
@@ -82,8 +86,9 @@
           tbody.innerHTML = items.map(row => `
             <tr>
               <td>${row[0] || ''}</td>
-              <td>${row[1] || ''}</td>
-              <td>${row[2] || ''}</td>
+              <td>${row[4] || ''}</td>
+              <td>${row[5] || ''}</td>
+              <td>${row[6] || ''}</td>
             </tr>
           `).join('');
         }
