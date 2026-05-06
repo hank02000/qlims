@@ -1,7 +1,7 @@
 const { google } = require('googleapis');
 
-// 從環境變數取得 API Key（部署時設定）
-const API_KEY = process.env.google_api_key;
+// 從環境變數取得 API Key（支援大寫和小寫）
+const API_KEY = process.env.GOOGLE_API_KEY || process.env.google_api_key;
 const SPREADSHEET_ID = '1dMKWZWYUmCW4iZCYkA5XDjE9GG5SQ8D82wRqV9XQOkU';
 const SHEET_NAME = '記錄';
 
