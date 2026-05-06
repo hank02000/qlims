@@ -3,7 +3,6 @@ const { google } = require('googleapis');
 // 從環境變數取得 API Key
 const API_KEY = process.env.GOOGLE_SHEETS_API_KEY || process.env.GOOGLE_API_KEY || process.env.google_api_key;
 const SPREADSHEET_ID = '1dMKWZWYUmCW4iZCYkA5XDjE9GG5SQ8D82wRqV9XQOkU';
-const SHEET_NAME = '記錄';
 
 module.exports = async (req, res) => {
   // CORS headers
