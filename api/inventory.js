@@ -24,7 +24,7 @@ module.exports = async (req, res) => {
     
     const response = await sheets.spreadsheets.values.get({
       spreadsheetId: SPREADSHEET_ID,
-      range: `${SHEET_NAME}!A:C`,
+      range: `'記錄'!A:G`,
     });
 
     res.status(200).json(response.data);
